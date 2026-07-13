@@ -1,8 +1,15 @@
 const TodoItem = ({ item }) => {
-  return <div>
-  {item},<button onClick={()=>{}}>Edit</button>,<button onClick={removeEventListener}>Delete</button>
-  
-  </div>;
+  return (
+    <div className="todo-item" >
+    <span >
+      {item}
+    </span>
+    <div className="button-group">
+      <button className="black" onClick={() => {editTodo}}>Edit</button>
+      <button className="red" onClick={()=> {deleteTodo}}>Delete</button>
+    </div>
+    </div>
+  );
 };
 
 export default TodoItem;

@@ -1,13 +1,12 @@
 import { useState } from "react";
 
-function TodoForm({dispatch}) {
+function TodoForm({setItems}) {
   const [task, setTask] = useState("");
   console.log(task);
 
   const addTodo = () => {
     console.log("clicked add");
   };
-  dispatch()
   return (
     <div className="input-group">
       <input
@@ -16,8 +15,7 @@ function TodoForm({dispatch}) {
         value={task}
         onChange={(e) => setTask(e.target.value)}
       />
-
-      <button onClick={()=>(addTodo)}>Add</button>
+      <button onClick={()=>setItems(addTodo)}>Add</button>
     </div>
   );
 }

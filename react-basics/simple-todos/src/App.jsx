@@ -30,12 +30,12 @@ function App() {
           />
 
           <button onClick={addTodo}>Add</button>
-        </div>
+          </div>
 
         <div className="todo-list">
           {todos.map((todo, index) => (
             <div className="todo-item" key={index}>
-              <span>{todo}</span>
+           <span>{todo}</span>
 
               <button
                 className="delete-btn"

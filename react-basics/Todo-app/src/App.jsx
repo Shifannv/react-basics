@@ -1,17 +1,19 @@
-import { useReducer } from "react";
+import { useState } from 'react';
+import './App.css'
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
-import todoReducer from "./reducers/todoReducer";
 function App() {
-const [state, dispatch] = useReducer()=({
- },[""])
- 
- todoReducer()
+  const [items, setItems] = useState(["hello", "todo", "again"]);
+
   return (
     <div className="container">
-      <h2>TODO App</h2>
-      <TodoForm />
-      <TodoList />
+    <div className='todo-card'>
+      <h1>TODO APP</h1>
+      <div className='group'>   
+      <TodoForm  setItems={setItems} />
+      <TodoList items={items}/>
+      </div>
+    </div>
     </div>
   );
 }

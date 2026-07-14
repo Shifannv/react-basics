@@ -1,12 +1,20 @@
-import { useState } from "react";
-
-function TodoForm({setItems}) {
-  const [task, setTask] = useState("");
-  console.log(task);
+function TodoForm({ setItems ,task ,setTask ,editingIndex 
+  ,setEditingIndex , editTodo }) {
 
   const addTodo = () => {
-    console.log("clicked add");
+    if (task.trim()=="")
+      return ;
+    if(editingIndex === null){
+      setItems((prev) => [...prev, task]);
+  } 
+    else{
+      // update
+        editTodo(editingIndex , task)
+        // update
+        setEditingIndex(null)
   };
+  setTask("")
+}
   return (
     <div className="input-group">
       <input
@@ -15,7 +23,7 @@ function TodoForm({setItems}) {
         value={task}
         onChange={(e) => setTask(e.target.value)}
       />
-      <button onClick={()=>setItems(addTodo)}>Add</button>
+      <button onClick={addTodo}>{editingIndex === null ? "Add" : "Update"}</button>
     </div>
   );
 }

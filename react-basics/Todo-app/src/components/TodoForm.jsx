@@ -1,20 +1,24 @@
-function TodoForm({ setItems ,task ,setTask ,editingIndex 
-  ,setEditingIndex , editTodo }) {
-
+function TodoForm({
+  setItems,
+  task,
+  setTask,
+  editingIndex,
+  setEditingIndex,
+  editTodo,
+}) { 
+  // given a array to  input box to pass task to edit or update
   const addTodo = () => {
-    if (task.trim()=="")
-      return ;
-    if(editingIndex === null){
+    if (task.trim() == "") return;
+    if (editingIndex === null) {
       setItems((prev) => [...prev, task]);
-  } 
-    else{
+    } else {
       // update
-        editTodo(editingIndex , task)
-        // update
-        setEditingIndex(null)
+      editTodo(editingIndex, task);
+      // update
+      setEditingIndex(null);
+    }
+    setTask("");
   };
-  setTask("")
-}
   return (
     <div className="input-group">
       <input
@@ -23,7 +27,9 @@ function TodoForm({ setItems ,task ,setTask ,editingIndex
         value={task}
         onChange={(e) => setTask(e.target.value)}
       />
-      <button onClick={addTodo}>{editingIndex === null ? "Add" : "Update"}</button>
+      <button onClick={addTodo}>
+        {editingIndex === null ? "Add" : "Update"}
+      </button>
     </div>
   );
 }

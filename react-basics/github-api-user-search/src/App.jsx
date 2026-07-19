@@ -21,6 +21,7 @@ function App() {
   );
 
   function handleSearch() {
+    //names space trimming that we use for trim
     const trimmedUsername = username.trim();
     if (trimmedUsername === "") return;
 

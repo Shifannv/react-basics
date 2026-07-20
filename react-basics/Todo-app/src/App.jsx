@@ -38,6 +38,7 @@ function App() {
       <div className="todo-card">
         <h1>TODO APP</h1>
         <div className="group">
+        {/* props passing  in todoform now they can use it */}
           <TodoForm
             setItems={setItems}
             task={task}
